@@ -1,0 +1,15 @@
+{
+  "name": "CapSwitch",
+  "description": "CapsLock 短按/双击/长按映射，支持自定义按键与后台常驻",
+  "version": "0.2.0",
+  "author": "xinmang",
+  "logo": "logo.png",
+  "preload": "preload.js",
+  "features": [
+    {
+      "code": "capswitch",
+      "explain": "CapsLock 短按/双击/长按映射设置",
+      "cmds": ["capswitch", "caps", "capslock"]
+    }
+  ]
+}

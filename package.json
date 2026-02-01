@@ -1,0 +1,10 @@
+{
+  "name": "capswitch",
+  "version": "0.1.0",
+  "description": "ZTools plugin to map CapsLock to Shift/Ctrl",
+  "type": "commonjs",
+  "private": true,
+  "dependencies": {
+    "node-global-key-listener": "^0.3.0"
+  }
+}

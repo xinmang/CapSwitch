@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CapSwitch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div class="brand">
+          <div class="badge">CS</div>
+          <div>
+            <h1>CapSwitch</h1>
+            <p>CapsLock 短按为 Shift，长按为 Ctrl，可自由调整按键与阈值。</p>
+          </div>
+        </div>
+        <div class="status" id="status">
+          <span class="dot" id="statusDot"></span>
+          <span class="text" id="statusText">正在检测状态…</span>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card">
+          <h2>基础设置</h2>
+          <div class="field">
+            <label class="switch">
+              <input type="checkbox" id="enabledToggle" />
+              <span class="slider"></span>
+              <span>启用 CapsLock 映射</span>
+            </label>
+          </div>
+          <div class="field">
+            <label for="shortKey">短按触发</label>
+            <select id="shortKey"></select>
+          </div>
+          <div class="field">
+            <label for="longKey">长按触发</label>
+            <select id="longKey"></select>
+          </div>
+          <div class="field">
+            <label for="doubleKey">双击触发</label>
+            <select id="doubleKey"></select>
+          </div>
+          <div class="field">
+            <label for="thresholdMs">长按阈值 (ms)</label>
+            <input type="number" id="thresholdMs" min="80" max="1000" step="10" />
+          </div>
+          <div class="field">
+            <label for="doubleTapMs">双击间隔 (ms)</label>
+            <input type="number" id="doubleTapMs" min="120" max="600" step="10" />
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>高级行为</h2>
+          <div class="field">
+            <label class="switch">
+              <input type="checkbox" id="triggerOnOther" />
+              <span class="slider"></span>
+              <span>按下其他键时立即判定为长按</span>
+            </label>
+          </div>
+          <div class="field">
+            <label class="switch">
+              <input type="checkbox" id="consumeCaps" />
+              <span class="slider"></span>
+              <span>阻止 CapsLock 自身切换状态</span>
+            </label>
+          </div>
+          <div class="note">
+            <p>macOS 可能需要在“辅助功能”里授权监听键盘。</p>
+          </div>
+        </section>
+
+        <section class="card highlight">
+          <h2>使用提示</h2>
+          <ul>
+            <li>建议阈值在 180-260ms 之间，兼顾快捷与误触。</li>
+            <li>长按会保持 Ctrl，直到你松开 CapsLock。</li>
+            <li>需要完全停止时，可取消“启用”并点击应用。</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="actions">
+        <button class="primary" id="applyButton">应用设置</button>
+        <button class="ghost" id="resetButton">恢复默认</button>
+      </footer>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
